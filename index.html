@@ -30,7 +30,6 @@ Released under MIT License. Enjoy!
         h1{margin-bottom: 0;}
         .update{font-size:.875rem;margin-top: .5em;padding-bottom: 1em;border-bottom: 1px solid #000;}
         .error{color:#ff1111;}
-        .field{width:100%;}
         li{margin-bottom:1rem;}
         input[type="text"]{width:100%;}
         textarea{width:100%;height:120px;white-space:pre;}
@@ -122,12 +121,12 @@ Released under MIT License. Enjoy!
         </div>
     
         <form id="validate_account">
-            <div class="field">
+            <div>
                 <label for="email">Account Email:</label><br/>
                 <input id="email" type="text" placeholder="(e.g. webmaster@yourdomain.com)"/>
             </div>
     
-            <div class="field">
+            <div>
                 <label for="howto_pubkey" class="help">(how do I generate this?)</label>
                 <input id="howto_pubkey" type="checkbox" class="help-checkbox"/>
                 <div class="help-content">
@@ -151,7 +150,7 @@ Released under MIT License. Enjoy!
                 <textarea id="pubkey" placeholder="-----BEGIN PUBLIC KEY----- ..."></textarea>
             </div>
     
-            <div class="field">
+            <div>
                 <input id="validate_account_submit" type="submit" value="Validate Account Info" disabled/>
                 <span id="validate_account_status" style="display:none;"></span>
             </div>
@@ -171,7 +170,7 @@ Released under MIT License. Enjoy!
         </div>
     
         <form id="validate_csr">
-            <div class="field">
+            <div>
                 <label for="howto_csr" class="help">(how do I generate this?)</label>
                 <input id="howto_csr" type="checkbox" class="help-checkbox"/>
                 <div class="help-content">
@@ -206,7 +205,7 @@ Released under MIT License. Enjoy!
                 <textarea id="csr" placeholder="-----BEGIN CERTIFICATE REQUEST----- ..."></textarea>
             </div>
     
-            <div class="field">
+            <div>
                 <input id="validate_csr_submit" type="submit" value="Validate CSR" disabled/>
                 <span id="validate_csr_status" style="display:none;"></span>
             </div>
@@ -229,7 +228,7 @@ Released under MIT License. Enjoy!
     
             <!-- Account Registration and Accept Terms -->
             <form id="validate_registration">
-                <div class="field">
+                <div>
                     <label for="howto_registration" class="help">(how do I do this?)</label>
                     <input id="howto_registration" type="checkbox" class="help-checkbox"/>
                     <div class="help-content">
@@ -258,7 +257,7 @@ Released under MIT License. Enjoy!
                     <input id="registration_sig_cmd" type="text" value="echo ..." readonly/><br/>
                     <input id="registration_sig" type="text" placeholder='Paste the hex output here (e.g. "(stdin)= f2cf67e4...")'/><br/>
                 </div>
-                <div class="field">
+                <div>
                     <input id="validate_registration_sig" type="submit" value="Accept Terms"/>
                     <span id="validate_registration_sig_status"></span>
                 </div>
@@ -266,7 +265,7 @@ Released under MIT License. Enjoy!
     
             <!-- Account Update Contact Email -->
             <form id="validate_update">
-                <div class="field">
+                <div>
                     <label for="howto_update" class="help">(how do I do this?)</label>
                     <input id="howto_update" type="checkbox" class="help-checkbox"/>
                     <div class="help-content">
@@ -292,7 +291,7 @@ Released under MIT License. Enjoy!
                     <input id="update_sig_cmd" type="text" value="waiting until terms are accepted..." disabled/><br/>
                     <input id="update_sig" type="text" placeholder="waiting until terms are accepted..." disabled/><br/>
                 </div>
-                <div class="field">
+                <div>
                     <input id="validate_update_sig" type="submit" value="Update Account" disabled/>
                     <span id="validate_update_sig_status"></span>
                 </div>
@@ -300,7 +299,7 @@ Released under MIT License. Enjoy!
     
             <!-- New Order Creation -->
             <form id="validate_order">
-                <div class="field">
+                <div>
                     <label for="howto_order" class="help">(how do I do this?)</label>
                     <input id="howto_order" type="checkbox" class="help-checkbox"/>
                     <div class="help-content">
@@ -324,7 +323,7 @@ Released under MIT License. Enjoy!
                     <input id="order_sig_cmd" type="text" value="waiting until account contact is updated..." disabled/><br/>
                     <input id="order_sig" type="text" placeholder="waiting until account contact is updated..." disabled/><br/>
                 </div>
-                <div class="field">
+                <div>
                     <input id="validate_order_sig" type="submit" value="Create Order" disabled/>
                     <span id="validate_order_sig_status"></span>
                 </div>
@@ -360,7 +359,7 @@ Released under MIT License. Enjoy!
     
                 <!-- GET-as-POST Authorization -->
                 <form class="auth_form">
-                    <div class="field">
+                    <div>
                         <label class="howto_auth_sig_label help">(how do I do this?)</label>
                         <input type="checkbox" class="howto_auth_sig help-checkbox"/>
                         <div class="help-content">
@@ -384,7 +383,7 @@ Released under MIT License. Enjoy!
                         <input class="auth_sig_cmd" type="text" value="waiting until previous challenges are complete..." disabled/><br/>
                         <input class="auth_sig" type="text" placeholder="waiting until previous challenges are complete..." disabled/><br/>
                     </div>
-                    <div class="field">
+                    <div>
                         <input class="validate_auth_sig" type="submit" value="Load Challenges" disabled/>
                         <span class="validate_auth_sig_status"></span>
                     </div>
@@ -456,7 +455,7 @@ Released under MIT License. Enjoy!
     
                                 <!-- Submit challenge -->
                                 <form class="validate_python_sig">
-                                    <div class="field">
+                                    <div>
                                         <label class="howto_python_sig_label help">(how do I do this?)</label>
                                         <input type="checkbox" class="howto_python_sig help-checkbox"/>
                                         <div class="help-content">
@@ -483,7 +482,7 @@ Released under MIT License. Enjoy!
                                         <input type="text" class="python_sig_cmd" value="waiting until you confirm the above command is running..." disabled/><br/>
                                         <input type="text" class="python_sig" placeholder="waiting until you confirm the above command is running..." disabled/><br/>
                                     </div>
-                                    <div class="field">
+                                    <div>
                                         <input type="submit" class="validate_python_sig_submit" value="Submit challenge for foobar.com" disabled/>
                                         <span class="python_sig_status"></span>
                                     </div>
@@ -491,7 +490,7 @@ Released under MIT License. Enjoy!
     
                                 <!-- Check authorization status -->
                                 <form class="validate_recheck_auth_python_sig">
-                                    <div class="field">
+                                    <div>
                                         <label class="howto_recheck_auth_python_sig_label help">(how do I do this?)</label>
                                         <input type="checkbox" class="howto_recheck_auth_python_sig help-checkbox"/>
                                         <div class="help-content">
@@ -515,7 +514,7 @@ Released under MIT License. Enjoy!
                                         <input type="text" class="recheck_auth_python_sig_cmd" value="waiting until you submit the challenge above..." disabled/><br/>
                                         <input type="text" class="recheck_auth_python_sig" placeholder="waiting until you submit the challenge above..." disabled/><br/>
                                     </div>
-                                    <div class="field">
+                                    <div>
                                         <input type="submit" class="validate_recheck_auth_python_sig_submit" value="Check challenge status" disabled/>
                                         <span class="validate_recheck_auth_python_sig_status"></span>
                                     </div>
@@ -574,7 +573,7 @@ Released under MIT License. Enjoy!
     
                                 <!-- Submit challenge -->
                                 <form class="validate_file_sig">
-                                    <div class="field">
+                                    <div>
                                         <label class="howto_file_sig_label help">(how do I do this?)</label>
                                         <input type="checkbox" class="howto_file_sig help-checkbox"/>
                                         <div class="help-content">
@@ -601,7 +600,7 @@ Released under MIT License. Enjoy!
                                         <input type="text" class="file_sig_cmd" value="waiting until you confirm the file is being served..." disabled/><br/>
                                         <input type="text" class="file_sig" placeholder="waiting until you confirm the file is being served..." disabled/><br/>
                                     </div>
-                                    <div class="field">
+                                    <div>
                                         <input type="submit" class="validate_file_sig_submit" value="Submit challenge for foobar.com" disabled/>
                                         <span class="file_sig_status"></span>
                                     </div>
@@ -609,7 +608,7 @@ Released under MIT License. Enjoy!
     
                                 <!-- Check authorization status -->
                                 <form class="validate_recheck_auth_file_sig">
-                                    <div class="field">
+                                    <div>
                                         <label class="howto_recheck_auth_file_sig_label help">(how do I do this?)</label>
                                         <input type="checkbox" class="howto_recheck_auth_file_sig help-checkbox"/>
                                         <div class="help-content">
@@ -633,7 +632,7 @@ Released under MIT License. Enjoy!
                                         <input type="text" class="recheck_auth_file_sig_cmd" value="waiting until you submit the challenge above..." disabled/><br/>
                                         <input type="text" class="recheck_auth_file_sig" placeholder="waiting until you submit the challenge above..." disabled/><br/>
                                     </div>
-                                    <div class="field">
+                                    <div>
                                         <input type="submit" class="validate_recheck_auth_file_sig_submit" value="Check challenge status" disabled/>
                                         <span class="validate_recheck_auth_file_sig_status"></span>
                                     </div>
@@ -687,7 +686,7 @@ Released under MIT License. Enjoy!
     
                                 <!-- Submit challenge -->
                                 <form class="validate_dns_sig">
-                                    <div class="field">
+                                    <div>
                                         <label class="howto_dns_sig_label help">(how do I do this?)</label>
                                         <input type="checkbox" class="howto_dns_sig help-checkbox"/>
                                         <div class="help-content">
@@ -714,7 +713,7 @@ Released under MIT License. Enjoy!
                                         <input type="text" class="dns_sig_cmd" value="waiting until you confirm the TXT record is visible..." disabled/><br/>
                                         <input type="text" class="dns_sig" placeholder="waiting until you confirm the TXT record is visible..." disabled/><br/>
                                     </div>
-                                    <div class="field">
+                                    <div>
                                         <input type="submit" class="validate_dns_sig_submit" value="Submit challenge for foobar.com" disabled/>
                                         <span class="dns_sig_status"></span>
                                     </div>
@@ -722,7 +721,7 @@ Released under MIT License. Enjoy!
     
                                 <!-- Check authorization status -->
                                 <form class="validate_recheck_auth_dns_sig">
-                                    <div class="field">
+                                    <div>
                                         <label class="howto_recheck_auth_dns_sig_label help">(how do I do this?)</label>
                                         <input type="checkbox" class="howto_recheck_auth_dns_sig help-checkbox"/>
                                         <div class="help-content">
@@ -746,7 +745,7 @@ Released under MIT License. Enjoy!
                                         <input type="text" class="recheck_auth_dns_sig_cmd" value="waiting until you submit the challenge above..." disabled/><br/>
                                         <input type="text" class="recheck_auth_dns_sig" placeholder="waiting until you submit the challenge above..." disabled/><br/>
                                     </div>
-                                    <div class="field">
+                                    <div>
                                         <input type="submit" class="validate_recheck_auth_dns_sig_submit" value="Check challenge status" disabled/>
                                         <span class="validate_recheck_auth_dns_sig_status"></span>
                                     </div>
@@ -762,7 +761,7 @@ Released under MIT License. Enjoy!
     
             <!-- Finalize Order -->
             <form id="validate_finalize">
-                <div class="field">
+                <div>
                     <label for="howto_finalize" class="help">(how do I do this?)</label>
                     <input id="howto_finalize" type="checkbox" class="help-checkbox"/>
                     <div class="help-content">
@@ -786,7 +785,7 @@ Released under MIT License. Enjoy!
                     <input id="finalize_sig_cmd" type="text" value="waiting until challenges are done..." disabled/><br/>
                     <input id="finalize_sig" type="text" placeholder="waiting until challenges are done..." disabled/><br/>
                 </div>
-                <div class="field">
+                <div>
                     <input id="validate_finalize_sig" type="submit" value="Finalize Order" disabled/>
                     <span id="validate_finalize_sig_status"></span>
                 </div>
@@ -794,7 +793,7 @@ Released under MIT License. Enjoy!
     
             <!-- Re-Check Order -->
             <form id="validate_recheck_order">
-                <div class="field">
+                <div>
                     <label for="howto_recheck_order" class="help">(how do I do this?)</label>
                     <input id="howto_recheck_order" type="checkbox" class="help-checkbox"/>
                     <div class="help-content">
@@ -818,7 +817,7 @@ Released under MIT License. Enjoy!
                     <input id="recheck_order_sig_cmd" type="text" value="waiting until challenges are done..." disabled/><br/>
                     <input id="recheck_order_sig" type="text" placeholder="waiting until challenges are done..." disabled/><br/>
                 </div>
-                <div class="field">
+                <div>
                     <input id="validate_recheck_order_sig" type="submit" value="Check Certificate Status" disabled/>
                     <span id="validate_recheck_order_sig_status"></span>
                 </div>
@@ -826,7 +825,7 @@ Released under MIT License. Enjoy!
     
             <!-- Get Certificate -->
             <form id="validate_cert">
-                <div class="field">
+                <div>
                     <label for="howto_cert" class="help">(how do I do this?)</label>
                     <input id="howto_cert" type="checkbox" class="help-checkbox"/>
                     <div class="help-content">
@@ -849,7 +848,7 @@ Released under MIT License. Enjoy!
                     <input id="cert_sig_cmd" type="text" value="waiting until challenges are done..." disabled/><br/>
                     <input id="cert_sig" type="text" placeholder="waiting until challenges are done..." disabled/><br/>
                 </div>
-                <div class="field">
+                <div>
                     <input id="validate_cert_sig" type="submit" value="Retrieve Certificate" disabled/>
                     <span id="validate_cert_sig_status"></span>
                 </div>
@@ -869,7 +868,7 @@ Released under MIT License. Enjoy!
                 Below is the signed certificate you can use for your website.
             </div>
     
-            <div class="field">
+            <div>
                 <label for="howto_install" class="help">(how do I install this?)</label>
                 <input id="howto_install" type="checkbox" class="help-checkbox"/>
                 <div class="help-content">
@@ -971,7 +970,7 @@ Released under MIT License. Enjoy!
                 <textarea id="crt" readonly></textarea>
             </div>
     
-            <div class="field">
+            <div>
                 <form action="https://www.ssllabs.com/ssltest/analyze.html" target="_blank" rel="noopener noreferrer">
                     <input id="ssltest_domain" type="hidden" name="d" value="example.com">
                     <input type="submit" value="Test my install"/> (opens SSL Labs in new window)
