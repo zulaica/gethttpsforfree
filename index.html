@@ -84,7 +84,7 @@
         border: 2px solid #bbbbbb;
       }
       code {
-        display: inline-block;
+        display: block;
         margin: 0.5rem 0 0 0;
         padding: 0.5rem;
         background-color: #ffffff;
@@ -240,7 +240,7 @@
       <!--############################-->
       <section>
         <h2>Step 1: Account Info</h2>
-        <div>
+        <p>
           Let's Encrypt requires that you register an account email and public
           key before issuing a certificate. The email is so that they can
           contact you if needed, and the public key is so you can securely sign
@@ -249,7 +249,7 @@
             <strong>Keep your account private key secret!</strong> Anyone who
             has it can impersonate you when making requests to Let's Encrypt!
           </em>
-        </div>
+        </p>
         <form id="validate_account">
           <div>
             <label for="email">Account Email:</label>
@@ -266,25 +266,22 @@
             </label>
             <input id="howto_pubkey" type="checkbox" class="help-checkbox" />
             <div class="help-content">
-              How to generate a new account keypair using openssl:
-              <br />
+              <p>How to generate a new account keypair using openssl:</p>
               <ol>
                 <li>
                   Generate an account private key if you don't have one:
                   <br />
-                  (KEEP ACCOUNT.KEY SECRET!)<br />
+                  (KEEP ACCOUNT.KEY SECRET!)
                   <code>openssl genrsa 4096 > account.key</code>
                 </li>
                 <li>
                   Print your public key:
-                  <br />
                   <code>openssl rsa -in account.key -pubout</code>
                 </li>
                 <li>Copy and paste the public key into the box below.<br /></li>
               </ol>
             </div>
             <label for="pubkey">Account Public Key:</label>
-            <br />
             <textarea
               id="pubkey"
               placeholder="-----BEGIN PUBLIC KEY----- ..."
@@ -307,7 +304,7 @@
       <!--###########################################-->
       <section>
         <h2>Step 2: Certificate Signing Request</h2>
-        <div>
+        <p>
           This is the certificate signing request (CSR) that you send to Let's
           Encrypt in order to issue you a signed certificate. It contains the
           website domains you want to issue certs for and the public key of your
@@ -316,7 +313,7 @@
             <strong>Keep your TLS private key secret!</strong> Anyone who has it
             can man-in-the-middle your website!
           </em>
-        </div>
+        </p>
         <form id="validate_csr">
           <div>
             <label for="howto_csr" class="help">
@@ -324,13 +321,12 @@
             </label>
             <input id="howto_csr" type="checkbox" class="help-checkbox" />
             <div class="help-content">
-              How to generate a new Certificate Signing Request (CSR):
-              <br />
+              <p>How to generate a new Certificate Signing Request (CSR):</p>
               <ol>
                 <li>
                   Generate a TLS private key if you don't have one:
                   <br />
-                  (KEEP DOMAIN.KEY SECRET!)<br />
+                  (KEEP DOMAIN.KEY SECRET!)
                   <code>openssl genrsa 4096 > domain.key</code>
                 </li>
                 <li>
@@ -349,11 +345,10 @@ openssl req -new -sha256 -key domain.key -subj "/" \
   &lt;(printf "\n[SAN]\nsubjectAltName=DNS:foo.com,DNS:www.foo.com"))
                   </pre>
                 </li>
-                <li>Copy and paste the CSR into the box below.<br /></li>
+                <li>Copy and paste the CSR into the box below.</li>
               </ol>
             </div>
             <label for="csr">Certificate Signing Request:</label>
-            <br />
             <textarea
               id="csr"
               placeholder="-----BEGIN CERTIFICATE REQUEST----- ..."
@@ -379,7 +374,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
           Step 3: Sign API Requests<span id="step3_pending"> (waiting...)</span>
         </h2>
         <div id="step3" style="display: none">
-          <div>
+          <p>
             Let's Encrypt requires that you sign all of your requests to them
             with your account private key. Below are the requests that you will
             need to sign. The commands to do this are generated below so you can
@@ -388,7 +383,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
               Be sure to change the account private key location so it points to
               your real private key.
             </em>
-          </div>
+          </p>
           <!-- Account Registration and Accept Terms -->
           <form id="validate_registration">
             <div>
@@ -401,19 +396,19 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                 class="help-checkbox"
               />
               <div class="help-content">
-                This command asks to register your account key (or look it up if
-                you have already registered) and accepts the
-                <a
-                  id="howto_tos"
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >terms and conditions</a
-                >
-                for Let's Encrypt.<br />
-                <br />
-                How to generate this signature:
-                <br />
+                <p>
+                  This command asks to register your account key (or look it up
+                  if you have already registered) and accepts the
+                  <a
+                    id="howto_tos"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >terms and conditions</a
+                  >
+                  for Let's Encrypt.
+                </p>
+                <p>How to generate this signature:</p>
                 <ol>
                   <li>
                     Copy and paste the command below into your terminal (if your
@@ -432,20 +427,17 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                   terms and conditions</a
                 >:
               </label>
-              <br />
               <input
                 id="registration_sig_cmd"
                 type="text"
                 value="echo ..."
                 readonly
               />
-              <br />
               <input
                 id="registration_sig"
                 type="text"
                 placeholder='Paste the hex output here (e.g. "(stdin)= f2cf67e4...")'
               />
-              <br />
             </div>
             <div>
               <input
@@ -456,21 +448,19 @@ openssl req -new -sha256 -key domain.key -subj "/" \
               <span id="validate_registration_sig_status"></span>
             </div>
           </form>
-
           <!-- Account Update Contact Email -->
           <form id="validate_update">
             <div>
               <label for="howto_update" class="help">(how do I do this?)</label>
               <input id="howto_update" type="checkbox" class="help-checkbox" />
               <div class="help-content">
-                This command sets your account contact email to what you put in
-                Step 1. If you had already set this email when you ran these
-                commands previously, this command will simply set the same email
-                again.
-                <br />
-                <br />
-                How to generate this signature:
-                <br />
+                <p>
+                  This command sets your account contact email to what you put
+                  in Step 1. If you had already set this email when you ran
+                  these commands previously, this command will simply set the
+                  same email again.
+                </p>
+                <p>How to generate this signature:</p>
                 <ol>
                   <li>
                     Copy and paste the command below into your terminal (if your
@@ -488,21 +478,18 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                 <span id="account_email">foo@foo.com</span>
                 ):
               </label>
-              <br />
               <input
                 id="update_sig_cmd"
                 type="text"
                 value="waiting until terms are accepted..."
                 disabled
               />
-              <br />
               <input
                 id="update_sig"
                 type="text"
                 placeholder="waiting until terms are accepted..."
                 disabled
               />
-              <br />
             </div>
             <div>
               <input
@@ -514,18 +501,17 @@ openssl req -new -sha256 -key domain.key -subj "/" \
               <span id="validate_update_sig_status"></span>
             </div>
           </form>
-
           <!-- New Order Creation -->
           <form id="validate_order">
             <div>
               <label for="howto_order" class="help">(how do I do this?)</label>
               <input id="howto_order" type="checkbox" class="help-checkbox" />
               <div class="help-content">
-                This command creates an order for the domains you included in
-                your certificate signing request (CSR) in Step 2.<br />
-                <br />
-                How to generate this signature:
-                <br />
+                <p>
+                  This command creates an order for the domains you included in
+                  your certificate signing request (CSR) in Step 2.
+                </p>
+                <p>How to generate this signature:</p>
                 <ol>
                   <li>
                     Copy and paste the command below into your terminal (if your
@@ -539,21 +525,18 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                 </ol>
               </div>
               <label>Create your certificate order:</label>
-              <br />
               <input
                 id="order_sig_cmd"
                 type="text"
                 value="waiting until account contact is updated..."
                 disabled
               />
-              <br />
               <input
                 id="order_sig"
                 type="text"
                 placeholder="waiting until account contact is updated..."
                 disabled
               />
-              <br />
             </div>
             <div>
               <input
@@ -576,7 +559,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
           Step 4: Verify Ownership<span id="step4_pending"> (waiting...)</span>
         </h2>
         <div id="step4" style="display: none">
-          <div>
+          <p>
             Let's Encrypt requires you prove you own the domains you have in
             your CSR. You can do this by serving a specific file at a specific
             url under your domains. Below are the files you need to serve along
@@ -592,7 +575,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
               Be sure to change the account private key location so it points to
               your real private key.
             </em>
-          </div>
+          </p>
           <div id="auths"></div>
           <div id="auth_template" style="display: none">
             <!-- GET-as-POST Authorization -->
@@ -603,12 +586,12 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                 </label>
                 <input type="checkbox" class="howto_auth_sig help-checkbox" />
                 <div class="help-content">
-                  This command requests the challenges you need to complete in
-                  order to make sure you control a domain in your certificate
-                  order.<br />
-                  <br />
-                  How to generate this signature:
-                  <br />
+                  <p>
+                    This command requests the challenges you need to complete in
+                    order to make sure you control a domain in your certificate
+                    order.
+                  </p>
+                  <p>How to generate this signature:</p>
                   <ol>
                     <li>
                       Copy and paste the command below into your terminal (if
@@ -625,21 +608,18 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                   Load set of challenges (<span class="auth_i"></span>/
                   <span class="auth_count"></span>):
                 </label>
-                <br />
                 <input
                   class="auth_sig_cmd"
                   type="text"
                   value="waiting until previous challenges are complete..."
                   disabled
                 />
-                <br />
                 <input
                   class="auth_sig"
                   type="text"
                   placeholder="waiting until previous challenges are complete..."
                   disabled
                 />
-                <br />
               </div>
               <div>
                 <input
@@ -670,7 +650,6 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                   <label class="challenge_file">Option 2 - file-based</label>
                   <input type="radio" class="challenge_dns" />
                   <label class="challenge_dns">Option 3 - DNS record</label>
-                  <br />
                   <!-- Option 1: python server method -->
                   <div class="tab challenge_python">
                     <label class="howto_python_label help">
@@ -678,21 +657,18 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                     </label>
                     <input class="howto_python help-checkbox" type="checkbox" />
                     <div class="help-content">
-                      How to serve the challenge response on your domain:
-                      <br />
+                      <p>How to serve the challenge response on your domain:</p>
                       <ol>
                         <li>
                           SSH into your domain as someone with sudo permissions:
-                          <br />
                           <code class="ssh">ssh ubuntu@foobar.com</code>
                         </li>
                         <li>
                           Stop any webserver running on port 80, if any. If you
                           had previously been running another python command,
                           you can kill it with Ctrl+C):
-                          <br />
                           <code>sudo service nginx stop</code> &lt;-- example
-                          for nginx<br />
+                          for nginx
                           <code>sudo apachectl -k graceful-stop</code> &lt;--
                           example for apache
                         </li>
@@ -703,9 +679,10 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           only need to keep this running briefly.
                         </li>
                         <li>
-                          Open the link in a new window to make sure it's
-                          working:
-                          <br />
+                          <p>
+                            Open the link in a new window to make sure it's
+                            working:
+                          </p>
                           <a
                             class="python_link"
                             href="#"
@@ -720,12 +697,10 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                         </li>
                       </ol>
                     </div>
-
                     <label>
                       Run this command on
                       <span class="python_domain">foobar.com</span>'s server:
                     </label>
-                    <br />
                     <textarea class="python_server" readonly></textarea>
                     <form class="confirm_python">
                       <div>
@@ -748,14 +723,14 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           class="howto_python_sig help-checkbox"
                         />
                         <div class="help-content">
-                          This step tells Let's Encrypt that you're serving the
-                          correct data for this challenge on your server. When
-                          Let's Encrypt receives this submission, they will make
-                          a request to your server to verify you are serving the
-                          data correctly.<br />
-                          <br />
-                          How to generate this signature:
-                          <br />
+                          <p>
+                            This step tells Let's Encrypt that you're serving
+                            the correct data for this challenge on your server.
+                            When Let's Encrypt receives this submission, they
+                            will make a request to your server to verify you are
+                            serving the data correctly.
+                          </p>
+                          <p>How to generate this signature:</p>
                           <ol>
                             <li>
                               Copy and paste the command below into your
@@ -771,21 +746,18 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           </ol>
                         </div>
                         <label>Sign challenge command:</label>
-                        <br />
                         <input
                           type="text"
                           class="python_sig_cmd"
                           value="waiting until you confirm the above command is running..."
                           disabled
                         />
-                        <br />
                         <input
                           type="text"
                           class="python_sig"
                           placeholder="waiting until you confirm the above command is running..."
                           disabled
                         />
-                        <br />
                       </div>
                       <div>
                         <input
@@ -808,11 +780,11 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           class="howto_recheck_auth_python_sig help-checkbox"
                         />
                         <div class="help-content">
-                          This step checks to see if Let's Encrypt has marked
-                          the challenge for this domain as complete.<br />
-                          <br />
-                          How to generate this signature:
-                          <br />
+                          <p>
+                            This step checks to see if Let's Encrypt has marked
+                            the challenge for this domain as complete.
+                          </p>
+                          <p>How to generate this signature:</p>
                           <ol>
                             <li>
                               Copy and paste the command below into your
@@ -828,21 +800,18 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           </ol>
                         </div>
                         <label>Check challenge status command:</label>
-                        <br />
                         <input
                           type="text"
                           class="recheck_auth_python_sig_cmd"
                           value="waiting until you submit the challenge above..."
                           disabled
                         />
-                        <br />
                         <input
                           type="text"
                           class="recheck_auth_python_sig"
                           placeholder="waiting until you submit the challenge above..."
                           disabled
                         />
-                        <br />
                       </div>
                       <div>
                         <input
@@ -857,7 +826,6 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                       </div>
                     </form>
                   </div>
-
                   <!-- Option 2: file-based method -->
                   <div class="tab challenge_file">
                     <label class="howto_file_label help">
@@ -865,19 +833,16 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                     </label>
                     <input class="howto_file help-checkbox" type="checkbox" />
                     <div class="help-content">
-                      How to host this file on your server:
-                      <br />
+                      <p>How to host this file on your server:</p>
                       <ol>
                         <li>
                           SSH into your domain as someone with write access to
                           your static web directory:
-                          <br />
                           <pre class="ssh">ssh ubuntu@foobar.com</pre>
                         </li>
                         <li>
                           Create the ".well-known/acme-challenge/" directory in
                           your webserver's static file path:
-                          <br />
                           <pre class="wwwdir">
 mkdir -p /path/to/www/.well-known/acme-challenge/
                           </pre>
@@ -885,18 +850,17 @@ mkdir -p /path/to/www/.well-known/acme-challenge/
                         <li>
                           Add the static folder to your webserver's config (if
                           you haven't already):
-                          <br />
                           <pre class="file_config">server {...</pre>
                         </li>
                         <li>
                           Create the file with the necessary contents:
-                          <br />
                           <pre class="file_echo">echo ...</pre>
                         </li>
                         <li>
-                          Open the link in a new window to make sure it's
-                          working:
-                          <br />
+                          <p>
+                            Open the link in a new window to make sure it's
+                            working:
+                          </p>
                           <a
                             class="file_link"
                             href="#"
@@ -912,7 +876,6 @@ mkdir -p /path/to/www/.well-known/acme-challenge/
                       </ol>
                     </div>
                     <label>Under this url:</label>
-                    <br />
                     <input type="text" class="file_url" value="" readonly />
                     <div>
                       <label>Serve this content:</label>
@@ -939,15 +902,14 @@ mkdir -p /path/to/www/.well-known/acme-challenge/
                           class="howto_file_sig help-checkbox"
                         />
                         <div class="help-content">
-                          This step tells Let's Encrypt that you're serving the
-                          correct data for this challenge on your server. When
-                          Let's Encrypt receives this submission, they will make
-                          a request to your server to verify you are serving the
-                          data correctly.
-                          <br />
-                          <br />
-                          How to generate this signature:
-                          <br />
+                          <p>
+                            This step tells Let's Encrypt that you're serving
+                            the correct data for this challenge on your server.
+                            When Let's Encrypt receives this submission, they
+                            will make a request to your server to verify you are
+                            serving the data correctly.
+                          </p>
+                          <p>How to generate this signature:</p>
                           <ol>
                             <li>
                               Copy and paste the command below into your
@@ -963,21 +925,18 @@ mkdir -p /path/to/www/.well-known/acme-challenge/
                           </ol>
                         </div>
                         <label>Sign challenge command:</label>
-                        <br />
                         <input
                           type="text"
                           class="file_sig_cmd"
                           value="waiting until you confirm the file is being served..."
                           disabled
                         />
-                        <br />
                         <input
                           type="text"
                           class="file_sig"
                           placeholder="waiting until you confirm the file is being served..."
                           disabled
                         />
-                        <br />
                       </div>
                       <div>
                         <input
@@ -1000,11 +959,11 @@ mkdir -p /path/to/www/.well-known/acme-challenge/
                           class="howto_recheck_auth_file_sig help-checkbox"
                         />
                         <div class="help-content">
-                          This step checks to see if Let's Encrypt has marked
-                          the challenge for this domain as complete.<br />
-                          <br />
-                          How to generate this signature:
-                          <br />
+                          <p>
+                            This step checks to see if Let's Encrypt has marked
+                            the challenge for this domain as complete.
+                          </p>
+                          <p>How to generate this signature:</p>
                           <ol>
                             <li>
                               Copy and paste the command below into your
@@ -1020,21 +979,18 @@ mkdir -p /path/to/www/.well-known/acme-challenge/
                           </ol>
                         </div>
                         <label>Check challenge status command:</label>
-                        <br />
                         <input
                           type="text"
                           class="recheck_auth_file_sig_cmd"
                           value="waiting until you submit the challenge above..."
                           disabled
                         />
-                        <br />
                         <input
                           type="text"
                           class="recheck_auth_file_sig"
                           placeholder="waiting until you submit the challenge above..."
                           disabled
                         />
-                        <br />
                       </div>
                       <div>
                         <input
@@ -1049,7 +1005,6 @@ mkdir -p /path/to/www/.well-known/acme-challenge/
                       </div>
                     </form>
                   </div>
-
                   <!-- Option 3: DNS TXT record -->
                   <div class="tab challenge_dns">
                     <label class="howto_dns_label help">
@@ -1057,8 +1012,7 @@ mkdir -p /path/to/www/.well-known/acme-challenge/
                     </label>
                     <input class="howto_dns help-checkbox" type="checkbox" />
                     <div class="help-content">
-                      How to set this DNS record:
-                      <br />
+                      <p>How to set this DNS record:</p>
                       <ol>
                         <li>Log into your domain name provider.</li>
                         <li>
@@ -1092,7 +1046,6 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                       </ol>
                     </div>
                     <label>Under this DNS domain:</label>
-                    <br />
                     <input
                       type="text"
                       class="dns_subdomain"
@@ -1113,7 +1066,6 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                         <span class="confirm_dns_status"></span>
                       </div>
                     </form>
-
                     <!-- Submit challenge -->
                     <form class="validate_dns_sig">
                       <div>
@@ -1125,15 +1077,14 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                           class="howto_dns_sig help-checkbox"
                         />
                         <div class="help-content">
-                          This step tells Let's Encrypt that you're serving the
-                          correct data for this challenge on your server. When
-                          Let's Encrypt receives this submission, they will make
-                          a request to your server to verify you are serving the
-                          data correctly.
-                          <br />
-                          <br />
-                          How to generate this signature:
-                          <br />
+                          <p>
+                            This step tells Let's Encrypt that you're serving
+                            the correct data for this challenge on your server.
+                            When Let's Encrypt receives this submission, they
+                            will make a request to your server to verify you are
+                            serving the data correctly.
+                          </p>
+                          <p>How to generate this signature:</p>
                           <ol>
                             <li>
                               Copy and paste the command below into your
@@ -1149,21 +1100,18 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                           </ol>
                         </div>
                         <label>Sign challenge command:</label>
-                        <br />
                         <input
                           type="text"
                           class="dns_sig_cmd"
                           value="waiting until you confirm the TXT record is visible..."
                           disabled
                         />
-                        <br />
                         <input
                           type="text"
                           class="dns_sig"
                           placeholder="waiting until you confirm the TXT record is visible..."
                           disabled
                         />
-                        <br />
                       </div>
                       <div>
                         <input
@@ -1186,12 +1134,11 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                           class="howto_recheck_auth_dns_sig help-checkbox"
                         />
                         <div class="help-content">
-                          This step checks to see if Let's Encrypt has marked
-                          the challenge for this domain as complete.
-                          <br />
-                          <br />
-                          How to generate this signature:
-                          <br />
+                          <p>
+                            This step checks to see if Let's Encrypt has marked
+                            the challenge for this domain as complete.
+                          </p>
+                          <p>How to generate this signature:</p>
                           <ol>
                             <li>
                               Copy and paste the command below into your
@@ -1207,21 +1154,18 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                           </ol>
                         </div>
                         <label>Check challenge status command:</label>
-                        <br />
                         <input
                           type="text"
                           class="recheck_auth_dns_sig_cmd"
                           value="waiting until you submit the challenge above..."
                           disabled
                         />
-                        <br />
                         <input
                           type="text"
                           class="recheck_auth_dns_sig"
                           placeholder="waiting until you submit the challenge above..."
                           disabled
                         />
-                        <br />
                       </div>
                       <div>
                         <input
@@ -1252,12 +1196,11 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                 class="help-checkbox"
               />
               <div class="help-content">
-                This command finalizes your order and tells Let's Encrypt to
-                generate your new certificate.
-                <br />
-                <br />
-                How to generate this signature:
-                <br />
+                <p>
+                  This command finalizes your order and tells Let's Encrypt to
+                  generate your new certificate.
+                </p>
+                <p>How to generate this signature:</p>
                 <ol>
                   <li>
                     Copy and paste the command below into your terminal (if your
@@ -1271,21 +1214,18 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                 </ol>
               </div>
               <label>Finalize order and generate certificate:</label>
-              <br />
               <input
                 id="finalize_sig_cmd"
                 type="text"
                 value="waiting until challenges are done..."
                 disabled
               />
-              <br />
               <input
                 id="finalize_sig"
                 type="text"
                 placeholder="waiting until challenges are done..."
                 disabled
               />
-              <br />
             </div>
             <div>
               <input
@@ -1309,12 +1249,11 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                 class="help-checkbox"
               />
               <div class="help-content">
-                This command checks the certificate status of your order to see
-                if it's been generated yet.
-                <br />
-                <br />
-                How to generate this signature:
-                <br />
+                <p>
+                  This command checks the certificate status of your order to
+                  see if it's been generated yet.
+                </p>
+                <p>How to generate this signature:</p>
                 <ol>
                   <li>
                     Copy and paste the command below into your terminal (if your
@@ -1328,21 +1267,18 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                 </ol>
               </div>
               <label>Check certificate generation status:</label>
-              <br />
               <input
                 id="recheck_order_sig_cmd"
                 type="text"
                 value="waiting until challenges are done..."
                 disabled
               />
-              <br />
               <input
                 id="recheck_order_sig"
                 type="text"
                 placeholder="waiting until challenges are done..."
                 disabled
               />
-              <br />
             </div>
             <div>
               <input
@@ -1360,11 +1296,8 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
               <label for="howto_cert" class="help">(how do I do this?)</label>
               <input id="howto_cert" type="checkbox" class="help-checkbox" />
               <div class="help-content">
-                This command downloads the final generated certificate.
-                <br />
-                <br />
-                How to generate this signature:
-                <br />
+                <p>This command downloads the final generated certificate.</p>
+                <p>How to generate this signature:</p>
                 <ol>
                   <li>
                     Copy and paste the command below into your terminal (if your
@@ -1378,21 +1311,18 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                 </ol>
               </div>
               <label>Retrieve the generated certificate:</label>
-              <br />
               <input
                 id="cert_sig_cmd"
                 type="text"
                 value="waiting until challenges are done..."
                 disabled
               />
-              <br />
               <input
                 id="cert_sig"
                 type="text"
                 placeholder="waiting until challenges are done..."
                 disabled
               />
-              <br />
             </div>
             <div>
               <input
@@ -1428,8 +1358,7 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
             </label>
             <input id="howto_install" type="checkbox" class="help-checkbox" />
             <div class="help-content">
-              Nginx installation instructions:
-              <br />
+              <p>Nginx installation instructions:</p>
               <ol>
                 <li>
                   Copy and paste the below certificates (the text contains both
@@ -1438,27 +1367,23 @@ dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT
                 </li>
                 <li>
                   If not done already, generate non-default dhparams.
-                  <br />
                   <code>openssl dhparam -out dhparam.pem 4096</code>
                 </li>
                 <li>
                   Copy "chained.pem" and "dhparam.pem" to /etc/ssl/certs/.
-                  <br />
                   <pre>
 scp chained.pem root@foo.com:/etc/ssl/certs/chained.pem
 scp dhparam.pem root@foo.com:/etc/ssl/certs/dhparam.pem
                   </pre>
                 </li>
                 <li>
-                  Copy "domain.key" /etc/ssl/private/.<br />
+                  Copy "domain.key" /etc/ssl/private/.
                   <code>
                     scp domain.key root@foo.com:/etc/ssl/private/domain.key
                   </code>
-                  <br />
                 </li>
                 <li>
                   Update your webserver config to use https (examples below).
-                  <br />
                   <pre>
 server {
     listen 443;
@@ -1481,8 +1406,7 @@ server {
                   </pre>
                 </li>
               </ol>
-              Apache installation instructions:
-              <br />
+              <p>Apache installation instructions:</p>
               <ol>
                 <li>
                   Copy and paste the first certificate section (e.g. the first
@@ -1496,7 +1420,6 @@ server {
                 </li>
                 <li>
                   Copy "domain.crt" and "intermediate.pem" to /etc/ssl/certs/.
-                  <br />
                   <pre>
 scp domain.crt root@foo.com:/etc/ssl/certs/domain.crt
 scp intermediate.pem root@foo.com:/etc/ssl/certs/intermediate.pem
@@ -1504,15 +1427,12 @@ scp intermediate.pem root@foo.com:/etc/ssl/certs/intermediate.pem
                 </li>
                 <li>
                   Copy "domain.key" /etc/ssl/private/.
-                  <br />
                   <code>
                     scp domain.key root@foo.com:/etc/ssl/private/domain.key
                   </code>
-                  <br />
                 </li>
                 <li>
                   Update your webserver config to use https (examples below).
-                  <br />
                   <pre>
 &lt;VirtualHost _default_:443&gt;
         ServerName foo.com:443
@@ -1537,7 +1457,6 @@ scp intermediate.pem root@foo.com:/etc/ssl/certs/intermediate.pem
               </ol>
             </div>
             <label for="crt">Signed Certificate Chain:</label>
-            <br />
             <textarea id="crt" readonly></textarea>
           </div>
           <div>
