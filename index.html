@@ -211,10 +211,10 @@
         <!--<a href="revoke.html">Click here</a> to revoke certs.-->
       </p>
       <p>
-        <b>
+        <strong>
           NOTE: This website is for people who know how to generate certificate
           signing requests (CSRs)!
-        </b>
+        </strong>
         If you're not familiar with how to do this, please use the official
         Let's Encrypt
         <a
@@ -245,10 +245,10 @@
           key before issuing a certificate. The email is so that they can
           contact you if needed, and the public key is so you can securely sign
           your requests to issue/revoke/renew your certificates.
-          <i>
-            <b>Keep your account private key secret!</b> Anyone who has it can
-            impersonate you when making requests to Let's Encrypt!
-          </i>
+          <em>
+            <strong>Keep your account private key secret!</strong> Anyone who
+            has it can impersonate you when making requests to Let's Encrypt!
+          </em>
         </div>
         <form id="validate_account">
           <div>
@@ -312,10 +312,10 @@
           Encrypt in order to issue you a signed certificate. It contains the
           website domains you want to issue certs for and the public key of your
           TLS private key.
-          <i>
-            <b>Keep your TLS private key secret!</b> Anyone who has it can
-            man-in-the-middle your website!
-          </i>
+          <em>
+            <strong>Keep your TLS private key secret!</strong> Anyone who has it
+            can man-in-the-middle your website!
+          </em>
         </div>
         <form id="validate_csr">
           <div>
@@ -384,10 +384,10 @@ openssl req -new -sha256 -key domain.key -subj "/" \
             with your account private key. Below are the requests that you will
             need to sign. The commands to do this are generated below so you can
             copy-and-paste them into your terminal.
-            <i>
+            <em>
               Be sure to change the account private key location so it points to
               your real private key.
-            </i>
+            </em>
           </div>
           <!-- Account Registration and Accept Terms -->
           <form id="validate_registration">
@@ -588,10 +588,10 @@ openssl req -new -sha256 -key domain.key -subj "/" \
             private key. Below are the verification requests that you will need
             to sign. The commands to do this are generated below so you can
             copy-and-paste them into your terminal.
-            <i>
+            <em>
               Be sure to change the account private key location so it points to
               your real private key.
-            </i>
+            </em>
           </div>
           <div id="auths"></div>
           <div id="auth_template" style="display: none">
@@ -654,12 +654,12 @@ openssl req -new -sha256 -key domain.key -subj "/" \
             <!-- Authorization challenges -->
             <div class="challenges-wrapper">
               <div class="challenges-status">
-                <i>Challenges: not loaded yet</i>
+                <em>Challenges: not loaded yet</em>
               </div>
               <div class="challenges" style="display: none">
                 <div class="challenges-domain">
-                  <i>Challenges for:</i>
-                  <b class="domain">foobar.com</b>
+                  <em>Challenges for:</em>
+                  <strong class="domain">foobar.com</strong>
                 </div>
                 <div class="field tabs">
                   <input type="radio" class="challenge_python" checked />
