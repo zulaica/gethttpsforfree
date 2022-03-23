@@ -133,14 +133,13 @@ Released under MIT License. Enjoy!
         background-color: #eeeeee;
       }
       .tabs
-        input[type="radio"].challenge_python:checked
-        ~ .tab.challenge_python {
+        input[id="challenge_python"]:checked ~ .tab.challenge_python {
         display: block;
       }
-      .tabs input[type="radio"].challenge_file:checked ~ .tab.challenge_file {
+      .tabs input[id="challenge_file"]:checked ~ .tab.challenge_file {
         display: block;
       }
-      .tabs input[type="radio"].challenge_dns:checked ~ .tab.challenge_dns {
+      .tabs input[id="challenge_dns"]:checked ~ .tab.challenge_dns {
         display: block;
       }
       .tab {
@@ -660,29 +659,26 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                   <input
                     id="challenge_python"
                     type="radio"
-                    class="challenge_python"
                     name="challenge"
                     checked
                   />
-                  <label for="challenge_python" class="challenge_python">
+                  <label for="challenge_python">
                     Option 1 - python server
                   </label>
                   <input
                     id="challenge_file"
                     type="radio"
-                    class="challenge_file"
                     name="challenge"
                   />
-                  <label for="challenge_file" class="challenge_file">
+                  <label for="challenge_file">
                     Option 2 - file-based
                   </label>
                   <input
                     id="challenge_dns"
                     type="radio"
-                    class="challenge_dns"
                     name="challenge"
                   />
-                  <label for="challenge_dns" class="challenge_dns">
+                  <label for="challenge_dns">
                     Option 3 - DNS record
                   </label>
                   <!-- Option 1: python server method -->
