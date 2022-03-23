@@ -298,7 +298,7 @@ Released under MIT License. Enjoy!
             </div>
             <textarea
               id="pubkey"
-              placeholder="-----BEGIN PUBLIC KEY----- ..."
+              placeholder="-----BEGIN PUBLIC KEY----- &hellip;"
               rows="14"
               cols="65"
             ></textarea>
@@ -364,7 +364,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
             </div>
             <textarea
               id="csr"
-              placeholder="-----BEGIN CERTIFICATE REQUEST----- ..."
+              placeholder="-----BEGIN CERTIFICATE REQUEST----- &hellip;"
               rows="14"
               cols="65"
             ></textarea>
@@ -384,7 +384,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
       <!--#############################-->
       <section>
         <h2>
-          Step 3: Sign API Requests<span id="step3_pending"> (waiting...)</span>
+          Step 3: Sign API Requests<span id="step3_pending"> (waiting&hellip;)</span>
         </h2>
         <div id="step3" style="display: none">
           <p>
@@ -439,13 +439,13 @@ openssl req -new -sha256 -key domain.key -subj "/" \
               <input
                 id="registration_sig_cmd"
                 type="text"
-                value="echo ..."
+                value="echo &hellip;"
                 readonly
               />
               <input
                 id="registration_sig"
                 type="text"
-                placeholder='Paste the hex output here (e.g. "(stdin)= f2cf67e4...")'
+                placeholder='Paste the hex output here (e.g. "(stdin)= f2cf67e4&hellip;")'
               />
             </div>
             <input
@@ -490,13 +490,13 @@ openssl req -new -sha256 -key domain.key -subj "/" \
               <input
                 id="update_sig_cmd"
                 type="text"
-                value="waiting until terms are accepted..."
+                value="waiting until terms are accepted&hellip;"
                 disabled
               />
               <input
                 id="update_sig"
                 type="text"
-                placeholder="waiting until terms are accepted..."
+                placeholder="waiting until terms are accepted&hellip;"
                 disabled
               />
             </div>
@@ -537,13 +537,13 @@ openssl req -new -sha256 -key domain.key -subj "/" \
               <input
                 id="order_sig_cmd"
                 type="text"
-                value="waiting until account contact is updated..."
+                value="waiting until account contact is updated&hellip;"
                 disabled
               />
               <input
                 id="order_sig"
                 type="text"
-                placeholder="waiting until account contact is updated..."
+                placeholder="waiting until account contact is updated&hellip;"
                 disabled
               />
             </div>
@@ -563,7 +563,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
       <!--##########################-->
       <section>
         <h2>
-          Step 4: Verify Ownership<span id="step4_pending"> (waiting...)</span>
+          Step 4: Verify Ownership<span id="step4_pending"> (waiting&hellip;)</span>
         </h2>
         <div id="step4" style="display: none">
           <p>
@@ -572,7 +572,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
             url under your domains. Below are the files you need to serve along
             with some copy-and-paste commands you can run on your website to
             start serving the file. Once you are serving the file on your
-            website, click "I'm now running this on...". After that, you need to
+            website, click "I'm now running this on&hellip;". After that, you need to
             tell Let's Encrypt to check the above files to verify ownership of
             your domains. This request needs to be signed with your account
             private key. Below are the verification requests that you will need
@@ -627,13 +627,13 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                 <input
                   class="auth_sig_cmd"
                   type="text"
-                  value="waiting until previous challenges are complete..."
+                  value="waiting until previous challenges are complete&hellip;"
                   disabled
                 />
                 <input
                   class="auth_sig"
                   type="text"
-                  placeholder="waiting until previous challenges are complete..."
+                  placeholder="waiting until previous challenges are complete&hellip;"
                   disabled
                 />
               </div>
@@ -739,7 +739,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                                 >
                               </li>
                               <li>
-                                Click "I'm now running this command..." button
+                                Click "I'm now running this command&hellip;" button
                                 when the file is being served on your domain.
                               </li>
                             </ol>
@@ -798,14 +798,14 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                         <input
                           type="text"
                           class="python_sig_cmd"
-                          value="waiting until you confirm the above command is running..."
+                          value="waiting until you confirm the above command is running&hellip;"
                           disabled
                         />
                         <input
                           type="text"
                           id="python_sig"
                           class="python_sig"
-                          placeholder="waiting until you confirm the above command is running..."
+                          placeholder="waiting until you confirm the above command is running&hellip;"
                           disabled
                         />
                       </div>
@@ -859,14 +859,14 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                         <input
                           type="text"
                           class="recheck_auth_python_sig_cmd"
-                          value="waiting until you submit the challenge above..."
+                          value="waiting until you submit the challenge above&hellip;"
                           disabled
                         />
                         <input
                           type="text"
                           id="recheck_auth_python_sig"
                           class="recheck_auth_python_sig"
-                          placeholder="waiting until you submit the challenge above..."
+                          placeholder="waiting until you submit the challenge above&hellip;"
                           disabled
                         />
                       </div>
@@ -916,13 +916,13 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                                 (if you haven't already):
                                 <pre
                                   class="file_config"
-                                ><code>server {...</code></pre>
+                                ><code>server {&hellip;</code></pre>
                               </li>
                               <li>
                                 Create the file with the necessary contents:
                                 <pre
                                   class="file_echo"
-                                ><code>echo ...</code></pre>
+                                ><code>echo &hellip;</code></pre>
                               </li>
                               <li>
                                 <p>
@@ -938,7 +938,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                                 >
                               </li>
                               <li>
-                                Click "I'm now serving this file..." button when
+                                Click "I'm now serving this file&hellip;" button when
                                 the file is being served on your domain.
                               </li>
                             </ol>
@@ -1005,14 +1005,14 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                         <input
                           type="text"
                           class="file_sig_cmd"
-                          value="waiting until you confirm the file is being served..."
+                          value="waiting until you confirm the file is being served&hellip;"
                           disabled
                         />
                         <input
                           type="text"
                           id="file_sig"
                           class="file_sig"
-                          placeholder="waiting until you confirm the file is being served..."
+                          placeholder="waiting until you confirm the file is being served&hellip;"
                           disabled
                         />
                       </div>
@@ -1062,14 +1062,14 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                         <input
                           type="text"
                           class="recheck_auth_file_sig_cmd"
-                          value="waiting until you submit the challenge above..."
+                          value="waiting until you submit the challenge above&hellip;"
                           disabled
                         />
                         <input
                           type="text"
                           id="recheck_auth_file_sig"
                           class="recheck_auth_file_sig"
-                          placeholder="waiting until you submit the challenge above..."
+                          placeholder="waiting until you submit the challenge above&hellip;"
                           disabled
                         />
                       </div>
@@ -1124,7 +1124,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                                 ><code>dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT</code></pre>
                               </li>
                               <li>
-                                Click "I can see the TXT record..." button when
+                                Click "I can see the TXT record&hellip;" button when
                                 you can see that new TXT record has propagated.
                               </li>
                             </ol>
@@ -1191,14 +1191,14 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                         <input
                           type="text"
                           class="dns_sig_cmd"
-                          value="waiting until you confirm the TXT record is visible..."
+                          value="waiting until you confirm the TXT record is visible&hellip;"
                           disabled
                         />
                         <input
                           type="text"
                           id="dns_sig"
                           class="dns_sig"
-                          placeholder="waiting until you confirm the TXT record is visible..."
+                          placeholder="waiting until you confirm the TXT record is visible&hellip;"
                           disabled
                         />
                       </div>
@@ -1252,14 +1252,14 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                         <input
                           type="text"
                           class="recheck_auth_dns_sig_cmd"
-                          value="waiting until you submit the challenge above..."
+                          value="waiting until you submit the challenge above&hellip;"
                           disabled
                         />
                         <input
                           type="text"
                           id="recheck_auth_dns_sig"
                           class="recheck_auth_dns_sig"
-                          placeholder="waiting until you submit the challenge above..."
+                          placeholder="waiting until you submit the challenge above&hellip;"
                           disabled
                         />
                       </div>
@@ -1307,13 +1307,13 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
               <input
                 id="finalize_sig_cmd"
                 type="text"
-                value="waiting until challenges are done..."
+                value="waiting until challenges are done&hellip;"
                 disabled
               />
               <input
                 id="finalize_sig"
                 type="text"
-                placeholder="waiting until challenges are done..."
+                placeholder="waiting until challenges are done&hellip;"
                 disabled
               />
             </div>
@@ -1356,13 +1356,13 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
               <input
                 id="recheck_order_sig_cmd"
                 type="text"
-                value="waiting until challenges are done..."
+                value="waiting until challenges are done&hellip;"
                 disabled
               />
               <input
                 id="recheck_order_sig"
                 type="text"
-                placeholder="waiting until challenges are done..."
+                placeholder="waiting until challenges are done&hellip;"
                 disabled
               />
             </div>
@@ -1400,13 +1400,13 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
               <input
                 id="cert_sig_cmd"
                 type="text"
-                value="waiting until challenges are done..."
+                value="waiting until challenges are done&hellip;"
                 disabled
               />
               <input
                 id="cert_sig"
                 type="text"
-                placeholder="waiting until challenges are done..."
+                placeholder="waiting until challenges are done&hellip;"
                 disabled
               />
             </div>
@@ -1427,7 +1427,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
       <section>
         <h2>
           Step 5: Install Certificate (
-          <span id="step5_pending">waiting...</span>
+          <span id="step5_pending">waiting&hellip;</span>
           )
         </h2>
         <div id="step5" style="display: none">
