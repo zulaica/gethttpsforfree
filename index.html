@@ -132,8 +132,7 @@ Released under MIT License. Enjoy!
       .tabs input[type="radio"]:checked + label {
         background-color: #eeeeee;
       }
-      .tabs
-        input[id="challenge_python"]:checked ~ .tab.challenge_python {
+      .tabs input[id="challenge_python"]:checked ~ .tab.challenge_python {
         display: block;
       }
       .tabs input[id="challenge_file"]:checked ~ .tab.challenge_file {
@@ -384,7 +383,9 @@ openssl req -new -sha256 -key domain.key -subj "/" \
       <!--#############################-->
       <section>
         <h2>
-          Step 3: Sign API Requests<span id="step3_pending"> (waiting&hellip;)</span>
+          Step 3: Sign API Requests<span id="step3_pending">
+            (waiting&hellip;)
+          </span>
         </h2>
         <div id="step3" style="display: none">
           <p>
@@ -563,7 +564,9 @@ openssl req -new -sha256 -key domain.key -subj "/" \
       <!--##########################-->
       <section>
         <h2>
-          Step 4: Verify Ownership<span id="step4_pending"> (waiting&hellip;)</span>
+          Step 4: Verify Ownership<span id="step4_pending">
+            (waiting&hellip;)
+          </span>
         </h2>
         <div id="step4" style="display: none">
           <p>
@@ -572,12 +575,12 @@ openssl req -new -sha256 -key domain.key -subj "/" \
             url under your domains. Below are the files you need to serve along
             with some copy-and-paste commands you can run on your website to
             start serving the file. Once you are serving the file on your
-            website, click "I'm now running this on&hellip;". After that, you need to
-            tell Let's Encrypt to check the above files to verify ownership of
-            your domains. This request needs to be signed with your account
-            private key. Below are the verification requests that you will need
-            to sign. The commands to do this are generated below so you can
-            copy-and-paste them into your terminal.
+            website, click "I'm now running this on&hellip;". After that, you
+            need to tell Let's Encrypt to check the above files to verify
+            ownership of your domains. This request needs to be signed with your
+            account private key. Below are the verification requests that you
+            will need to sign. The commands to do this are generated below so
+            you can copy-and-paste them into your terminal.
             <em>
               Be sure to change the account private key location so it points to
               your real private key.
@@ -665,22 +668,10 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                   <label for="challenge_python">
                     Option 1 - python server
                   </label>
-                  <input
-                    id="challenge_file"
-                    type="radio"
-                    name="challenge"
-                  />
-                  <label for="challenge_file">
-                    Option 2 - file-based
-                  </label>
-                  <input
-                    id="challenge_dns"
-                    type="radio"
-                    name="challenge"
-                  />
-                  <label for="challenge_dns">
-                    Option 3 - DNS record
-                  </label>
+                  <input id="challenge_file" type="radio" name="challenge" />
+                  <label for="challenge_file"> Option 2 - file-based </label>
+                  <input id="challenge_dns" type="radio" name="challenge" />
+                  <label for="challenge_dns"> Option 3 - DNS record </label>
                   <!-- Option 1: python server method -->
                   <div class="tab challenge_python">
                     <form class="confirm_python">
@@ -739,8 +730,9 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                                 >
                               </li>
                               <li>
-                                Click "I'm now running this command&hellip;" button
-                                when the file is being served on your domain.
+                                Click "I'm now running this command&hellip;"
+                                button when the file is being served on your
+                                domain.
                               </li>
                             </ol>
                           </div>
@@ -938,8 +930,8 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                                 >
                               </li>
                               <li>
-                                Click "I'm now serving this file&hellip;" button when
-                                the file is being served on your domain.
+                                Click "I'm now serving this file&hellip;" button
+                                when the file is being served on your domain.
                               </li>
                             </ol>
                           </div>
@@ -1124,8 +1116,9 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                                 ><code>dig +short @ns.yournameserver.com _acme_challenge.foo.com TXT</code></pre>
                               </li>
                               <li>
-                                Click "I can see the TXT record&hellip;" button when
-                                you can see that new TXT record has propagated.
+                                Click "I can see the TXT record&hellip;" button
+                                when you can see that new TXT record has
+                                propagated.
                               </li>
                             </ol>
                           </div>
