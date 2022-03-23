@@ -65,6 +65,11 @@ Released under MIT License. Enjoy!
       form + form {
         margin-top: 2em;
       }
+      fieldset {
+        margin-bottom: 2em;
+        padding: 0;
+        border: 0;
+      }
       input[type="text"] {
         font-size: 0.825rem;
         padding: 0.5em 1em;
@@ -270,15 +275,15 @@ Released under MIT License. Enjoy!
           </em>
         </p>
         <form id="validate_account">
-          <div class="form-control">
+          <fieldset>
             <label for="email">Account Email</label>
             <input
               id="email"
               type="text"
               placeholder="(e.g. webmaster@yourdomain.com)"
             />
-          </div>
-          <div class="form-control">
+          </fieldset>
+          <fieldset>
             <label for="pubkey">Account Public Key</label>
             <div class="help">
               <input id="howto_pubkey" type="checkbox" />
@@ -308,7 +313,7 @@ Released under MIT License. Enjoy!
               rows="14"
               cols="65"
             ></textarea>
-          </div>
+          </fieldset>
           <input
             id="validate_account_submit"
             type="submit"
@@ -335,7 +340,7 @@ Released under MIT License. Enjoy!
           </em>
         </p>
         <form id="validate_csr">
-          <div class="form-control">
+          <fieldset>
             <label for="csr">Certificate Signing Request</label>
             <div class="help">
               <label for="howto_csr"> (How do I generate this?) </label>
@@ -374,7 +379,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
               rows="14"
               cols="65"
             ></textarea>
-          </div>
+          </fieldset>
           <input
             id="validate_csr_submit"
             type="submit"
@@ -407,7 +412,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
           </p>
           <!-- Account Registration and Accept Terms -->
           <form id="validate_registration">
-            <div class="form-control">
+            <fieldset>
               <label for="registration_sig">
                 Accept the Let's Encrypt
                 <a id="tos" href="#" target="_blank" rel="noopener noreferrer">
@@ -455,7 +460,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                 type="text"
                 placeholder='Paste the hex output here (e.g. "(stdin)= f2cf67e4&hellip;")'
               />
-            </div>
+            </fieldset>
             <input
               id="validate_registration_sig"
               type="submit"
@@ -465,7 +470,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
           </form>
           <!-- Account Update Contact Email -->
           <form id="validate_update">
-            <div class="form-control">
+            <fieldset>
               <label for="update_sig">
                 Update your account email (
                 <span id="account_email">foo@foo.com</span>
@@ -507,7 +512,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                 placeholder="waiting until terms are accepted&hellip;"
                 disabled
               />
-            </div>
+            </fieldset>
             <input
               id="validate_update_sig"
               type="submit"
@@ -518,7 +523,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
           </form>
           <!-- New Order Creation -->
           <form id="validate_order">
-            <div class="form-control">
+            <fieldset>
               <label for="order_sig">Create your certificate order</label>
               <div class="help">
                 <label for="howto_order">(How do I do this?)</label>
@@ -554,7 +559,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                 placeholder="waiting until account contact is updated&hellip;"
                 disabled
               />
-            </div>
+            </fieldset>
             <input
               id="validate_order_sig"
               type="submit"
@@ -597,7 +602,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
           <div id="auth_template">
             <!-- GET-as-POST Authorization -->
             <form class="auth_form">
-              <div class="form-control">
+              <fieldset>
                 <label for="auth_sig">
                   Load set of challenges (
                   <span class="auth_i"></span>/
@@ -646,7 +651,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                   placeholder="waiting until previous challenges are complete&hellip;"
                   disabled
                 />
-              </div>
+              </fieldset>
               <input
                 class="validate_auth_sig"
                 type="submit"
@@ -682,7 +687,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                   <!-- Option 1: python server method -->
                   <div class="tab challenge_python">
                     <form class="confirm_python">
-                      <div class="form-control">
+                      <fieldset>
                         <label>
                           Run this command on
                           <span class="python_domain">foobar.com</span>'s server
@@ -745,7 +750,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           </div>
                         </div>
                         <textarea class="python_server" readonly></textarea>
-                      </div>
+                      </fieldset>
                       <input
                         type="submit"
                         class="confirm_python_submit"
@@ -755,7 +760,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                     </form>
                     <!-- Submit challenge -->
                     <form class="validate_python_sig">
-                      <div class="form-control">
+                      <fieldset>
                         <label for="python_sig">Sign challenge command</label>
                         <div class="help">
                           <label
@@ -807,7 +812,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           placeholder="waiting until you confirm the above command is running&hellip;"
                           disabled
                         />
-                      </div>
+                      </fieldset>
                       <input
                         type="submit"
                         class="validate_python_sig_submit"
@@ -818,10 +823,10 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                     </form>
                     <!-- Check authorization status -->
                     <form class="validate_recheck_auth_python_sig">
-                      <div class="form-control">
-                        <label for="recheck_auth_python_sig"
-                          >Check challenge status command</label
-                        >
+                      <fieldset>
+                        <label for="recheck_auth_python_sig">
+                          Check challenge status command
+                        </label>
                         <div class="help">
                           <label
                             for="howto_recheck_auth_python_sig"
@@ -868,7 +873,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           placeholder="waiting until you submit the challenge above&hellip;"
                           disabled
                         />
-                      </div>
+                      </fieldset>
                       <input
                         type="submit"
                         class="validate_recheck_auth_python_sig_submit"
@@ -883,7 +888,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                   <!-- Option 2: file-based method -->
                   <div class="tab challenge_file">
                     <form class="confirm_file">
-                      <div class="form-control">
+                      <fieldset>
                         <div class="help">
                           <label for="howto_file" class="howto_file_label">
                             (How do I do this?)
@@ -952,7 +957,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           value=""
                           readonly
                         />
-                      </div>
+                      </fieldset>
                       <input
                         type="submit"
                         class="confirm_file_submit"
@@ -962,7 +967,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                     </form>
                     <!-- Submit challenge -->
                     <form class="validate_file_sig">
-                      <div class="form-control">
+                      <fieldset>
                         <label for="file_sig">Sign challenge command</label>
                         <div class="help">
                           <label
@@ -1014,7 +1019,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           placeholder="waiting until you confirm the file is being served&hellip;"
                           disabled
                         />
-                      </div>
+                      </fieldset>
                       <input
                         type="submit"
                         class="validate_file_sig_submit"
@@ -1025,7 +1030,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                     </form>
                     <!-- Check authorization status -->
                     <form class="validate_recheck_auth_file_sig">
-                      <div class="form-control">
+                      <fieldset>
                         <label for="recheck_auth_file_sig">
                           Check challenge status command
                         </label>
@@ -1071,7 +1076,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                           placeholder="waiting until you submit the challenge above&hellip;"
                           disabled
                         />
-                      </div>
+                      </fieldset>
                       <input
                         type="submit"
                         class="validate_recheck_auth_file_sig_submit"
@@ -1086,7 +1091,7 @@ openssl req -new -sha256 -key domain.key -subj "/" \
                   <!-- Option 3: DNS TXT record -->
                   <div class="tab challenge_dns">
                     <form class="confirm_dns">
-                      <div class="form-control">
+                      <fieldset>
                         <div class="help">
                           <label class="howto_dns_label">
                             (How do I do this?)
@@ -1139,7 +1144,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                         />
                         <label>Set this TXT record:</label>
                         <input type="text" class="dns_data" value="" readonly />
-                      </div>
+                      </fieldset>
                       <input
                         type="submit"
                         class="confirm_dns_submit"
@@ -1149,7 +1154,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                     </form>
                     <!-- Submit challenge -->
                     <form class="validate_dns_sig">
-                      <div class="form-control">
+                      <fieldset>
                         <label for="dns_sig">Sign challenge command</label>
                         <div class="help">
                           <label
@@ -1201,7 +1206,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                           placeholder="waiting until you confirm the TXT record is visible&hellip;"
                           disabled
                         />
-                      </div>
+                      </fieldset>
                       <input
                         type="submit"
                         class="validate_dns_sig_submit"
@@ -1212,7 +1217,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                     </form>
                     <!-- Check authorization status -->
                     <form class="validate_recheck_auth_dns_sig">
-                      <div class="form-control">
+                      <fieldset>
                         <label for="recheck_auth_dns_sig">
                           Check challenge status command
                         </label>
@@ -1262,7 +1267,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                           placeholder="waiting until you submit the challenge above&hellip;"
                           disabled
                         />
-                      </div>
+                      </fieldset>
                       <input
                         type="submit"
                         class="validate_recheck_auth_dns_sig_submit"
@@ -1278,7 +1283,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
           </div>
           <!-- Finalize Order -->
           <form id="validate_finalize">
-            <div class="form-control">
+            <fieldset>
               <label for="finalize_sig">
                 Finalize order and generate certificate
               </label>
@@ -1316,7 +1321,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                 placeholder="waiting until challenges are done&hellip;"
                 disabled
               />
-            </div>
+            </fieldset>
             <input
               id="validate_finalize_sig"
               type="submit"
@@ -1327,7 +1332,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
           </form>
           <!-- Re-Check Order -->
           <form id="validate_recheck_order">
-            <div class="form-control">
+            <fieldset>
               <label for="recheck_order_sig">
                 Check certificate generation status
               </label>
@@ -1365,7 +1370,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                 placeholder="waiting until challenges are done&hellip;"
                 disabled
               />
-            </div>
+            </fieldset>
             <input
               id="validate_recheck_order_sig"
               type="submit"
@@ -1376,7 +1381,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
           </form>
           <!-- Get Certificate -->
           <form id="validate_cert">
-            <div class="form-control">
+            <fieldset>
               <label for="cert_sig">Retrieve the generated certificate</label>
               <div class="help">
                 <label for="howto_cert">(How do I do this?)</label>
@@ -1409,7 +1414,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
                 placeholder="waiting until challenges are done&hellip;"
                 disabled
               />
-            </div>
+            </fieldset>
             <input
               id="validate_cert_sig"
               type="submit"
@@ -1441,7 +1446,7 @@ aaaaaaaaaaaaaaaaaaaaaa</pre
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div class="form-control">
+            <fieldset>
               <label for="crt">Signed Certificate Chain</label>
               <div class="help">
                 <label for="howto_install">(How do I install this?)</label>
@@ -1547,7 +1552,7 @@ scp intermediate.pem root@foo.com:/etc/ssl/certs/intermediate.pem
                 </div>
               </div>
               <textarea id="crt" readonly></textarea>
-            </div>
+            </fieldset>
             <input
               id="ssltest_domain"
               type="hidden"
